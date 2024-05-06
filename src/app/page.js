@@ -7,12 +7,14 @@ export default function Home() {
 		const panels = document.querySelectorAll('.panel');
 
 		function toggleOpen() {
-			this.classNameList.toggle('open');
+			console.log('Hello');
+			this.classList.toggle('open');
 		}
 
 		function toggleActive(e) {
+			console.log(e.propertyName);
 			if (e.propertyName.includes('flex')) {
-				this.classNameList.toggle('open-active');
+				this.classList.toggle('open-active');
 			}
 		}
 
@@ -30,7 +32,7 @@ export default function Home() {
 				panel.removeEventListener('transitionend', toggleActive)
 			);
 		};
-	}, []);
+	}, []); // Empty dependency array means it will run once on mount
 
 	return (
 		<div className="panels hover:cursor-pointer">
